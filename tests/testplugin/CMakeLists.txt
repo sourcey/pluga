@@ -1,1 +1,1 @@
-define_libsourcey_library(testplugin base uv json plugu)
+define_libsourcey_library(testplugin base uv plugu)

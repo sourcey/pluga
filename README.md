@@ -27,7 +27,7 @@ git clone https://github.com/sourcey/plugu.git
 
 Contributions in the form of pull requests are always welcome.
 
-1. [Fork Pacm on Github](https://github.com/sourcey/plugu)
+1. [Fork Plugu on Github](https://github.com/sourcey/plugu)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
