@@ -10,7 +10,7 @@ Plugu is a simple C++ plugin system which currently supports:
 * Simple API for defining and exposing plugins
 * Strict API versioning for ABI safety
 
-For more information take a look at [this blog post](http://sourcey.com/simple-cpp-cross-platform-plugin-system-with-plugu) which talks about the concepts and mothodology behind Plugu.
+For more information take a look at [this blog post](http://sourcey.com/simple-cross-platform-cpp-plugin-system-with-plugu) which talks about the concepts and mothodology behind Plugu.
 
 ## Installing
 
