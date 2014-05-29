@@ -4,13 +4,13 @@
 **Licence**: LGPL  
 **Dependencies**: [LibSourcey (base, uv)](http://sourcey.com/libsourcey)  
 
-Plugu is a simple C++ plugin system which currently supports:
+Plugu is a simple C++ plugin system that's dead simple to use in your own projects. It currently supports:
 
 * Loading cross-platform plugins and shared libraries
-* Simple API for defining and exposing plugins
+* Simple and elegant API for defining plugins
 * Strict API versioning for ABI safety
 
-For more information take a look at [this blog post](http://sourcey.com/simple-cross-platform-cpp-plugin-system-with-plugu) which talks about the concepts and mothodology behind Plugu.
+For more information take a look at [this blog post](http://sourcey.com/building-a-cross-platform-plugin-system-in-cpp) which talks about the concepts and mothodology behind Plugu.
 
 ## Installing
 

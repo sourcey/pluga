@@ -112,7 +112,7 @@ int main(int argc, char** argv)
 		plugu::Tests run;	
 	}	
 	
-	// Wait for user intervention before exiting
+	// Wait for user intervention before exit
 	scy::pause();
 	return 0;
 }
