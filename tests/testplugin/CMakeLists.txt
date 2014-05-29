@@ -1,0 +1,1 @@
+define_libsourcey_library(testplugin base uv json plugu)
