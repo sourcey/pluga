@@ -1,7 +1,7 @@
 #include "scy/base.h"
 #include "scy/logger.h"
 #include "scy/sharedlibrary.h"
-#include "scy/plugu/plugu.h"
+#include "scy/pluga/pluga.h"
 
 #include "testplugin/testpluginapi.h"
 
@@ -15,7 +15,7 @@ using namespace scy;
 
 
 namespace scy {
-namespace plugu {
+namespace pluga {
 
 
 class Tests
@@ -98,7 +98,7 @@ public:
 };
 
 
-} } // namespace scy::plugu
+} } // namespace scy::pluga
 
 
 int main(int argc, char** argv) 
@@ -109,7 +109,7 @@ int main(int argc, char** argv)
 
 	// Run tests
 	{
-		plugu::Tests run;	
+		pluga::Tests run;	
 	}	
 	
 	// Wait for user intervention before exit

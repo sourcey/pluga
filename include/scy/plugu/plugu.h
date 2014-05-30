@@ -16,15 +16,15 @@
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 //
 
-#ifndef SCY_Plugu_H
-#define SCY_Plugu_H
+#ifndef SCY_Pluga_H
+#define SCY_Pluga_H
 
 
 #include "scy/base.h"
 
 
 namespace scy {
-namespace plugu {
+namespace pluga {
 
 
 // Forward declare the plugin class which must be defined externally.
@@ -59,12 +59,12 @@ struct PluginDetails {
 
 #define SCY_PLUGIN(classType, pluginName, pluginVersion)     \
   extern "C" {                                               \
-      SCY_PLUGIN_EXPORT scy::plugu::IPlugin* getPlugin()     \
+      SCY_PLUGIN_EXPORT scy::pluga::IPlugin* getPlugin()     \
       {                                                      \
           static classType singleton;                        \
           return &singleton;                                 \
       }                                                      \
-      SCY_PLUGIN_EXPORT scy::plugu::PluginDetails exports =  \
+      SCY_PLUGIN_EXPORT scy::pluga::PluginDetails exports =  \
       {                                                      \
           SCY_STANDARD_PLUGIN_STUFF,                         \
           #classType,                                        \
@@ -75,7 +75,7 @@ struct PluginDetails {
   }
 
 
-} } // namespace scy::plugu
+} } // namespace scy::pluga
 
 
-#endif // SCY_Plugu_H
+#endif // SCY_Pluga_H

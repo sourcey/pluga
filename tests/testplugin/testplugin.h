@@ -5,7 +5,7 @@
 #include "testpluginapi.h"
 
 
-class TestPlugin: public scy::plugu::IPlugin 
+class TestPlugin: public scy::pluga::IPlugin 
 	// Test plugin implementation
 {
 public:

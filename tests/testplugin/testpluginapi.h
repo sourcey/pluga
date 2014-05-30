@@ -2,12 +2,12 @@
 #define SCY_TestPluginAPI_H
 
 
-#include "scy/plugu/plugu.h"
+#include "scy/pluga/pluga.h"
 #include <string>
 
 
 namespace scy {
-namespace plugu {
+namespace pluga {
 
 
 // NOTE: When using STL containers and other complex types you 
@@ -57,7 +57,7 @@ typedef int (*GimmeFiveFunc)();
 	// Static function which returns, you guessed it, the number 5!
 
 
-} } // namespace scy::plugu
+} } // namespace scy::pluga
 
 
 #endif
