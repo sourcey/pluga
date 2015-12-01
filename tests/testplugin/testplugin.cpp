@@ -1,6 +1,8 @@
 #include "testplugin.h"
 #include <iostream>
 #include <fstream>
+#include <stdexcept>
+#include <string.h>
 
 	
 //

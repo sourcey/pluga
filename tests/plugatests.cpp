@@ -6,12 +6,12 @@
 #include "testplugin/testpluginapi.h"
 
 #include <assert.h>
+#include <stdexcept>
 
 
 using std::cout;
 using std::cerr;
 using std::endl;
-using namespace scy;
 
 
 namespace scy {
@@ -109,7 +109,7 @@ int main(int argc, char** argv)
 
 	// Run tests
 	{
-		pluga::Tests run;	
+		scy::pluga::Tests run;	
 	}	
 	
 	// Wait for user intervention before exit
