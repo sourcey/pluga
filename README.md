@@ -14,7 +14,7 @@ For more information take a look at [this blog post](http://sourcey.com/building
 
 ## Installing
 
-* Install [LibSourcey](http://sourcey.com/libsourcey/#install-libsourcey)
+* Install [LibSourcey](http://sourcey.com/libsourcey/#installation)
 * Clone the Pluga repository in the LibSourcey `src` folder:
 ~~~ bash
 cd libsourcey/src
@@ -35,4 +35,4 @@ Contributions in the form of pull requests are always welcome.
 
 ## Issues
 
-If you find any bugs or issues please use the new [Github issue tracker](https://github.com/sourcey/pluga/issues).
+If you find any bugs or issues please use the [Github issue tracker](https://github.com/sourcey/pluga/issues).

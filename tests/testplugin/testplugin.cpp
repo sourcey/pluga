@@ -4,7 +4,7 @@
 #include <stdexcept>
 #include <string.h>
 
-	
+    
 //
 // Test Plugin
 // 
@@ -15,20 +15,20 @@ SCY_PLUGIN(TestPlugin, "Test Plugin", "0.1.1")
 
 TestPlugin::TestPlugin()
 {
-	std::cout << "TestPlugin: Create" << std::endl;
+    std::cout << "TestPlugin: Create" << std::endl;
 }
 
 
 TestPlugin::~TestPlugin() 
 {
-	std::cout << "TestPlugin: Destroy" << std::endl;
+    std::cout << "TestPlugin: Destroy" << std::endl;
 }
-	
+    
 
 bool TestPlugin::onCommand(const char* node, const char* data, unsigned int size)
 {
-	std::cout << "TestPlugin: Command: " << node << ": " << data << std::endl;
-	
+    std::cout << "TestPlugin: Command: " << node << ": " << data << std::endl;
+    
     try {
         // Handle a JSON encoded options hash
         if (strcmp(node, "options:set") == 0) {   
@@ -36,7 +36,7 @@ bool TestPlugin::onCommand(const char* node, const char* data, unsigned int size
             json::Value root;
             json::Reader reader;
             if (!reader.parse(data, size, root))          
-                throw std::runtime_error("Invalid JSON format: " + reader.getFormatedErrorMessages());
+                throw std::runtime_error("Invalid JSON format: " + reader.getFormattedErrorMessages());
                 
             // Do something with JSON data here...
 #endif
@@ -56,39 +56,39 @@ bool TestPlugin::onCommand(const char* node, const char* data, unsigned int size
         else throw std::runtime_error("Unknown command");
     }
     
-	// Catch exceptions to set the internal error message and return false
+    // Catch exceptions to set the internal error message and return false
     catch (std::exception& exc) {
-		_error.assign(exc.what());
+        _error.assign(exc.what());
         std::cerr << "Command error: " << _error << std::endl;
         return false;
     }
 
-	return true;
+    return true;
 }
 
 
 void TestPlugin::setValue(const char* value)
 {
-	std::cout << "TestPlugin: Set value: " << value << std::endl;
-	_value = value;
+    std::cout << "TestPlugin: Set value: " << value << std::endl;
+    _value = value;
 }
 
 
 std::string TestPlugin::sValue() const 
 { 
-	return _value;
+    return _value;
 }
 
 
 const char* TestPlugin::cValue() const 
 { 
-	return _value.c_str();
+    return _value.c_str();
 }
 
 
 const char* TestPlugin::lastError() const 
 { 
-	return _error.empty() ? nullptr : _error.c_str();
+    return _error.empty() ? nullptr : _error.c_str();
 }
 
 
@@ -102,5 +102,5 @@ extern "C" SCY_PLUGIN_EXPORT int gimmeFive();
 
 int gimmeFive()
 {
-	return 5;
+    return 5;
 }
