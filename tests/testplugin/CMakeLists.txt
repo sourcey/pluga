@@ -1,1 +1,1 @@
-define_libsourcey_library(testplugin base uv pluga)
+define_libsourcey_library(testplugin uv base pluga)
