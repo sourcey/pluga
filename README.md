@@ -1,10 +1,16 @@
 # Pluga
 
-**Homepage**: [http://sourcey.com/pluga](http://sourcey.com/pluga)  
-**Dependencies**: [LibSourcey (base, uv)](http://sourcey.com/libsourcey)  
-**Licence**: LGPL  
+> Simple C++ plugin system
 
-Pluga is a simple C++ plugin system that's dead simple to use in your own projects. It currently supports:
+[![Circle CI](https://circleci.com/gh/sourcey/libsourcey.svg?style=shield&circle-token=ab142562b19bb857de796d729aab28fa9df7682d)](https://circleci.com/gh/sourcey/libsourcey)
+[![Doxygen](http://sourcey.com/images/doxygen.svg)](http://sourcey.com/libsourcey/api-pacm/)
+
+**Homepage**: [http://sourcey.com/pluga](http://sourcey.com/pluga/)  
+**Documentation**: [http://sourcey.com/libsourcey/api-pluga/](http://sourcey.com/libsourcey/api-pluga/)  
+**Dependencies**: [LibSourcey (base, uv)](http://sourcey.com/libsourcey/)  
+**Licence**: LGPL
+
+Pluga is a simple C++ plugin system that you can drop into your own projects. It currently supports:
 
 * Loading cross-platform plugins and shared libraries
 * Simple and elegant API for defining plugins
@@ -21,7 +27,7 @@ cd libsourcey/src
 git clone https://github.com/sourcey/pluga.git
 ~~~
 * Ensure the `BUILD_MODULE_pluga` build variables are enabled in CMake and regenerate the LibSourcey project files
-* To build Pluga tests also enable the `BUILD_MODULE_TESTS` and `BUILD_TEST_pluga` variables in CMake
+* To build Pluga tests also enable the `BUILD_TESTS` and `BUILD_TEST_pluga` variables in CMake
 
 ## Contributing
 

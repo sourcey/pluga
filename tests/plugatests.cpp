@@ -4,7 +4,7 @@
 #include "scy/sharedlibrary.h"
 #include "scy/pluga/pluga.h"
 
-#include "testplugin/testpluginapi.h"
+#include "plugatestplugin/testpluginapi.h"
 
 
 using std::cout;
