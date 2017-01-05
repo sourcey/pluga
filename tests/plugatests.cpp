@@ -1,8 +1,8 @@
+#include "scy/pluga/pluga.h"
 #include "scy/base.h"
-#include "scy/test.h"
 #include "scy/logger.h"
 #include "scy/sharedlibrary.h"
-#include "scy/pluga/pluga.h"
+#include "scy/test.h"
 
 #include "plugatestplugin/testpluginapi.h"
 
@@ -19,29 +19,26 @@ namespace pluga {
 class Tests
 {
 public:
-    Tests()
-    {
-        runPluginTest();
-    }
+    Tests() { runPluginTest(); }
 
     void runPluginTest()
     {
         // Set the plugin shared library location
         std::string path(SCY_BUILD_DIR);
-        path += "/src/pluga/tests/testplugin/";
-        // build/src/pluga/tests/testplugin/libtestplugin
+        path += "/src/pluga/tests/plugatestplugin/";
+		// build/src/pluga/tests/plugatestplugin/libtestplugin
 #if WIN32
-# ifdef _DEBUG
-        path += "testplugind.dll";
-# else
-        path += "testplugin.dll";
-# endif
+#ifdef _DEBUG
+        path += "plugatestplugind.dll";
 #else
-# ifdef _DEBUG
-        path += "libtestplugind.so";
-# else
-        path += "libtestplugin.so";
-# endif
+        path += "plugatestplugin.dll";
+#endif
+#else
+#ifdef _DEBUG
+        path += "libplugatestplugind.so";
+#else
+        path += "libplugatestplugin.so";
+#endif
 #endif
 
         try {
@@ -54,21 +51,21 @@ public:
             PluginDetails* info;
             lib.sym("exports", reinterpret_cast<void**>(&info));
             cout << "Plugin Info: "
-                << "\n\tAPI Version: " << info->apiVersion
-                << "\n\tFile Name: " << info->fileName
-                << "\n\tClass Name: " << info->className
-                << "\n\tPlugin Name: " << info->pluginName
-                << "\n\tPlugin Version: " << info->pluginVersion
-                << endl;
+                 << "\n\tAPI Version: " << info->apiVersion
+                 << "\n\tFile Name: " << info->fileName
+                 << "\n\tClass Name: " << info->className
+                 << "\n\tPlugin Name: " << info->pluginName
+                 << "\n\tPlugin Version: " << info->pluginVersion << endl;
 
             // API version checking
             if (info->apiVersion != SCY_PLUGIN_API_VERSION)
-                throw std::runtime_error(
-                    util::format("Plugin version mismatch. Expected %s, got %s.",
-                        SCY_PLUGIN_API_VERSION, info->apiVersion));
+                throw std::runtime_error(util::format(
+                    "Plugin version mismatch. Expected %s, got %s.",
+                    SCY_PLUGIN_API_VERSION, info->apiVersion));
 
             // Instantiate the plugin
-            IPlugin* plugin = reinterpret_cast<IPlugin*>(info->initializeFunc());
+            IPlugin* plugin =
+                reinterpret_cast<IPlugin*>(info->initializeFunc());
 
             // Call string accessor methods
             plugin->setValue("abracadabra");
@@ -80,7 +77,8 @@ public:
             // Call command methods
             expect(plugin->onCommand("options:set", "rendomdata", 10));
             expect(plugin->lastError() == nullptr);
-            expect(plugin->onCommand("unknown:command", "rendomdata", 10) == false);
+            expect(plugin->onCommand("unknown:command", "rendomdata", 10) ==
+                   false);
             expect(strcmp(plugin->lastError(), "Unknown command") == 0);
 
             // Call a C function
@@ -90,8 +88,7 @@ public:
 
             // Close the plugin and free memory
             lib.close();
-        }
-        catch (std::exception& exc) {
+        } catch (std::exception& exc) {
             cerr << "Error: " << exc.what() << endl;
             expect(0);
         }
@@ -101,7 +98,8 @@ public:
 };
 
 
-} } // namespace scy::pluga
+} // namespace pluga
+} // namespace scy
 
 
 int main(int argc, char** argv)

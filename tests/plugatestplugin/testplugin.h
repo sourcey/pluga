@@ -5,9 +5,8 @@
 #include "testpluginapi.h"
 
 
-
-    /// Test plugin implementation
-class TestPlugin: public scy::pluga::IPlugin 
+/// Test plugin implementation
+class TestPlugin : public scy::pluga::IPlugin
 {
 public:
     TestPlugin();
@@ -15,19 +14,20 @@ public:
 
     ///// Commands
     /// Handle a command from the application.
-    virtual bool onCommand(const char* node, const char* data, unsigned int size);
+    virtual bool onCommand(const char* node, const char* data,
+                           unsigned int size);
 
-        // Return the last error message as a char pointer.
+    // Return the last error message as a char pointer.
     /// If no error is set a nullptr will be returned.
     virtual const char* lastError() const;
 
-    
+
     ///// String accessors
     /// Sets the internal string from the given value.
     /// The given value must be null terminated.
     virtual void setValue(const char* value);
 
-        // Return the internal string value as a char pointer.
+    // Return the internal string value as a char pointer.
     /// Since we are returning a POD type plugins will be ABI agnostic.
     virtual const char* cValue() const;
 
@@ -41,8 +41,8 @@ public:
 #endif
 
 protected:
-     std::string _error;
-     std::string _value;
+    std::string _error;
+    std::string _value;
 };
 
 
