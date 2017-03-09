@@ -3,7 +3,7 @@
 // LibSourcey
 // Copyright (c) 2005, Sourcey <http://sourcey.com>
 //
-// SPDX-License-Identifier:	LGPL-2.1+
+// SPDX-License-Identifier: LGPL-2.1+
 //
 /// @addtogroup pluga
 /// @{
@@ -16,12 +16,24 @@
 #include "scy/base.h"
 
 
+// Shared library exports
+#if defined(SCY_WIN) && defined(SCY_SHARED_LIBRARY)
+    #if defined(Pluga_EXPORTS)
+        #define Pluga_API __declspec(dllexport)
+    #else
+        #define Pluga_API __declspec(dllimport)
+    #endif
+#else
+    #define Pluga_API // nothing
+#endif
+
+
 namespace scy {
 namespace pluga {
 
 
 // Forward declare the plugin class which must be defined externally.
-class IPlugin;
+class Pluga_API IPlugin;
 
 // Define the API version.
 // This value is incremented whenever there are ABI breaking changes.
@@ -34,7 +46,7 @@ class IPlugin;
 #endif
 
 // Define a type for the static function pointer.
-SCY_EXTERN typedef IPlugin* (*GetPluginFunc)();
+Pluga_API typedef IPlugin* (*GetPluginFunc)();
 
 // Plugin details structure that's exposed to the application.
 struct PluginDetails

@@ -34,7 +34,7 @@ bool TestPlugin::onCommand(const char* node, const char* data,
         // Handle a JSON encoded options hash
         if (strcmp(node, "options:set") == 0) {
 #if 0
-            json::Value root;
+            json::value root;
             json::Reader reader;
             if (!reader.parse(data, size, root))          
                 throw std::runtime_error("Invalid JSON format: " + reader.getFormattedErrorMessages());

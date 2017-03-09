@@ -55,7 +55,8 @@ public:
                  << "\n\tFile Name: " << info->fileName
                  << "\n\tClass Name: " << info->className
                  << "\n\tPlugin Name: " << info->pluginName
-                 << "\n\tPlugin Version: " << info->pluginVersion << endl;
+                 << "\n\tPlugin Version: " << info->pluginVersion 
+				 << endl;
 
             // API version checking
             if (info->apiVersion != SCY_PLUGIN_API_VERSION)
@@ -77,8 +78,7 @@ public:
             // Call command methods
             expect(plugin->onCommand("options:set", "rendomdata", 10));
             expect(plugin->lastError() == nullptr);
-            expect(plugin->onCommand("unknown:command", "rendomdata", 10) ==
-                   false);
+            expect(plugin->onCommand("unknown:command", "rendomdata", 10) == false);
             expect(strcmp(plugin->lastError(), "Unknown command") == 0);
 
             // Call a C function
