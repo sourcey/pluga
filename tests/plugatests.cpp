@@ -12,6 +12,9 @@ using std::cerr;
 using std::endl;
 
 
+#define PLUGA_ENABLE_STL 1
+
+
 namespace scy {
 namespace pluga {
 
@@ -26,7 +29,6 @@ public:
         // Set the plugin shared library location
         std::string path(SCY_BUILD_DIR);
         path += "/src/pluga/tests/plugatestplugin/";
-		// build/src/pluga/tests/plugatestplugin/libtestplugin
 #if WIN32
 #ifdef _DEBUG
         path += "plugatestplugind.dll";
@@ -55,8 +57,8 @@ public:
                  << "\n\tFile Name: " << info->fileName
                  << "\n\tClass Name: " << info->className
                  << "\n\tPlugin Name: " << info->pluginName
-                 << "\n\tPlugin Version: " << info->pluginVersion 
-				 << endl;
+                 << "\n\tPlugin Version: " << info->pluginVersion
+				         << endl;
 
             // API version checking
             if (info->apiVersion != SCY_PLUGIN_API_VERSION)
@@ -65,13 +67,12 @@ public:
                     SCY_PLUGIN_API_VERSION, info->apiVersion));
 
             // Instantiate the plugin
-            IPlugin* plugin =
-                reinterpret_cast<IPlugin*>(info->initializeFunc());
+            auto plugin = reinterpret_cast<IPlugin*>(info->initializeFunc());
 
             // Call string accessor methods
             plugin->setValue("abracadabra");
             expect(strcmp(plugin->cValue(), "abracadabra") == 0);
-#if PLUGU_ENABLE_STL
+#if PLUGA_ENABLE_STL
             expect(plugin->sValue() == "abracadabra");
 #endif
 
@@ -90,7 +91,7 @@ public:
             lib.close();
         } catch (std::exception& exc) {
             cerr << "Error: " << exc.what() << endl;
-            expect(0);
+            expect(false);
         }
 
         cout << "Ending" << endl;
