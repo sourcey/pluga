@@ -1,2 +1,2 @@
-define_libsourcey_test(plugatests uv base pluga)
+define_libsourcey_test(plugatests base pluga)
 add_subdirectory("plugatestplugin")
