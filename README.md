@@ -19,7 +19,7 @@ Pluga is a simple C++ plugin system that you can drop into your own projects. It
 Pluga is part of the [LibSourcey](https://github.com/sourcey/libsourcey) project. To build:
 
 ~~~ bash
-git clone https://github.com/sourcey/libsourcey.git
+git clone --recurse-submodules https://github.com/sourcey/libsourcey.git
 cd libsourcey
 cmake -B build -DBUILD_MODULE_pluga=ON -DBUILD_TESTS=ON
 cmake --build build
