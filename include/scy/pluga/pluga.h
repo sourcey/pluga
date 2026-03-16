@@ -9,8 +9,7 @@
 /// @{
 
 
-#ifndef SCY_Pluga_H
-#define SCY_Pluga_H
+#pragma once
 
 
 #include "scy/base.h"
@@ -18,13 +17,13 @@
 
 // Shared library exports
 #if defined(SCY_WIN) && defined(SCY_SHARED_LIBRARY)
-    #if defined(Pluga_EXPORTS)
-        #define Pluga_API __declspec(dllexport)
-    #else
-        #define Pluga_API __declspec(dllimport)
-    #endif
+#if defined(Pluga_EXPORTS)
+#define Pluga_API __declspec(dllexport)
 #else
-    #define Pluga_API // nothing
+#define Pluga_API __declspec(dllimport)
+#endif
+#else
+#define Pluga_API // nothing
 #endif
 
 
@@ -46,7 +45,7 @@ class Pluga_API IPlugin;
 #endif
 
 // Define a type for the static function pointer.
-Pluga_API typedef IPlugin* (*GetPluginFunc)();
+using GetPluginFunc = IPlugin* (*)();
 
 // Plugin details structure that's exposed to the application.
 struct PluginDetails
@@ -61,28 +60,25 @@ struct PluginDetails
 
 #define SCY_STANDARD_PLUGIN_STUFF SCY_PLUGIN_API_VERSION, __FILE__
 
-#define SCY_PLUGIN(classType, pluginName, pluginVersion)                       \
-    extern "C" {                                                               \
-    SCY_PLUGIN_EXPORT scy::pluga::IPlugin* getPlugin()                         \
-    {                                                                          \
-        static classType singleton;                                            \
-        return &singleton;                                                     \
-    }                                                                          \
-    SCY_PLUGIN_EXPORT scy::pluga::PluginDetails exports = {                    \
-        SCY_STANDARD_PLUGIN_STUFF,                                             \
-        #classType,                                                            \
-        pluginName,                                                            \
-        pluginVersion,                                                         \
-        getPlugin,                                                             \
-    };                                                                         \
+#define SCY_PLUGIN(classType, pluginName, pluginVersion)    \
+    extern "C" {                                            \
+    SCY_PLUGIN_EXPORT scy::pluga::IPlugin* getPlugin()      \
+    {                                                       \
+        static classType singleton;                         \
+        return &singleton;                                  \
+    }                                                       \
+    SCY_PLUGIN_EXPORT scy::pluga::PluginDetails exports = { \
+        SCY_STANDARD_PLUGIN_STUFF,                          \
+        #classType,                                         \
+        pluginName,                                         \
+        pluginVersion,                                      \
+        getPlugin,                                          \
+    };                                                      \
     }
 
 
 } // namespace pluga
 } // namespace scy
-
-
-#endif // SCY_Pluga_H
 
 
 /// @\}

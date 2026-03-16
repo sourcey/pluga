@@ -2,7 +2,7 @@
 #include <fstream>
 #include <iostream>
 #include <stdexcept>
-#include <string.h>
+#include <cstring>
 
 
 //
@@ -33,14 +33,6 @@ bool TestPlugin::onCommand(const char* node, const char* data,
     try {
         // Handle a JSON encoded options hash
         if (strcmp(node, "options:set") == 0) {
-#if 0
-            json::value root;
-            json::Reader reader;
-            if (!reader.parse(data, size, root))          
-                throw std::runtime_error("Invalid JSON format: " + reader.getFormattedErrorMessages());
-                
-            // Do something with JSON data here...
-#endif
         }
 
         // Handle raw file data

@@ -2,13 +2,11 @@
 
 > Simple C++ plugin system
 
-[![Circle CI](https://circleci.com/gh/sourcey/libsourcey.svg?style=shield&circle-token=ab142562b19bb857de796d729aab28fa9df7682d)](https://circleci.com/gh/sourcey/libsourcey)
-[![Doxygen](http://sourcey.com/images/doxygen.svg)](http://sourcey.com/libsourcey/api-pacm/)
+[![CI](https://github.com/sourcey/libsourcey/actions/workflows/ci.yml/badge.svg)](https://github.com/sourcey/libsourcey/actions/workflows/ci.yml)
 
-**Homepage**: [http://sourcey.com/pluga](http://sourcey.com/pluga/)  
-**Documentation**: [http://sourcey.com/libsourcey/api-pluga/](http://sourcey.com/libsourcey/api-pluga/)  
-**Dependencies**: [LibSourcey (base, uv)](http://sourcey.com/libsourcey/)  
-**Licence**: LGPL
+**Repository**: [https://github.com/sourcey/libsourcey](https://github.com/sourcey/libsourcey)
+**Dependencies**: [LibSourcey (base)](https://github.com/sourcey/libsourcey)
+**Licence**: LGPL-2.1+
 
 Pluga is a simple C++ plugin system that you can drop into your own projects. It currently supports:
 
@@ -16,29 +14,25 @@ Pluga is a simple C++ plugin system that you can drop into your own projects. It
 * Simple and elegant API for defining plugins
 * Strict API versioning for ABI safety
 
-For more information take a look at [this blog post](http://sourcey.com/building-a-simple-cpp-cross-platform-plugin-system) which talks about the concepts and mothodology behind Pluga.
-
 ## Installing
 
-* Install [LibSourcey](http://sourcey.com/libsourcey/#installation)
-* Clone the Pluga repository in the LibSourcey `src` folder:
+Pluga is part of the [LibSourcey](https://github.com/sourcey/libsourcey) project. To build:
+
 ~~~ bash
-cd libsourcey/src
-git clone https://github.com/sourcey/pluga.git
+git clone https://github.com/sourcey/libsourcey.git
+cd libsourcey
+cmake -B build -DBUILD_MODULE_pluga=ON -DBUILD_TESTS=ON
+cmake --build build
 ~~~
-* Ensure the `BUILD_MODULE_pluga` build variables are enabled in CMake and regenerate the LibSourcey project files
-* To build Pluga tests also enable the `BUILD_TESTS` and `BUILD_TEST_pluga` variables in CMake
+
+Pluga can also be used as an external module by cloning it into the LibSourcey `src` folder, where it will be auto-discovered by the build system.
 
 ## Contributing
 
 Contributions in the form of pull requests are always welcome.
 
-1. [Fork Pluga on Github](https://github.com/sourcey/pluga)
+1. [Fork LibSourcey on Github](https://github.com/sourcey/libsourcey)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
-
-## Issues
-
-If you find any bugs or issues please use the [Github issue tracker](https://github.com/sourcey/pluga/issues).

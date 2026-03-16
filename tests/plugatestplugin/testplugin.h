@@ -1,5 +1,4 @@
-#ifndef SCY_TestPlugin_H
-#define SCY_TestPlugin_H
+#pragma once
 
 
 #include "testpluginapi.h"
@@ -38,7 +37,7 @@ public:
 #if PLUGA_ENABLE_STL
     /// Return the internal string value as an STL string.
     /// This method breaks ABI agnosticity.
-    /// See the PLUGU_ENABLE_STL definition above.
+    /// See the PLUGA_ENABLE_STL definition above.
     virtual std::string sValue() const;
 #endif
 
@@ -46,6 +45,3 @@ protected:
     std::string _error;
     std::string _value;
 };
-
-
-#endif

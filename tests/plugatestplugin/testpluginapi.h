@@ -1,5 +1,4 @@
-#ifndef SCY_TestPluginAPI_H
-#define SCY_TestPluginAPI_H
+#pragma once
 
 
 #include "scy/pluga/pluga.h"
@@ -20,8 +19,8 @@ namespace pluga {
 class IPlugin
 {
 public:
-    IPlugin(){};
-    virtual ~IPlugin(){};
+    IPlugin() = default;
+    virtual ~IPlugin() noexcept = default;
 
     //
     /// Commands
@@ -50,18 +49,15 @@ public:
 #if PLUGA_ENABLE_STL
     /// Return the internal string value as an STL string.
     /// This method breaks ABI agnosticity.
-    /// See the PLUGU_ENABLE_STL definition above.
+    /// See the PLUGA_ENABLE_STL definition above.
     virtual std::string sValue() const = 0;
 #endif
 };
 
 
-typedef int (*GimmeFiveFunc)(); /// Static function which returns, you guessed
+using GimmeFiveFunc = int (*)(); /// Static function which returns, you guessed
                                 /// it, the number 5!
 
 
 } // namespace pluga
 } // namespace scy
-
-
-#endif

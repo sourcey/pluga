@@ -1,14 +1,14 @@
-#include "scy/pluga/pluga.h"
 #include "scy/base.h"
 #include "scy/logger.h"
+#include "scy/pluga/pluga.h"
 #include "scy/sharedlibrary.h"
 #include "scy/test.h"
 
 #include "plugatestplugin/testpluginapi.h"
 
 
-using std::cout;
 using std::cerr;
+using std::cout;
 using std::endl;
 
 
@@ -28,7 +28,7 @@ public:
     {
         // Set the plugin shared library location
         std::string path(SCY_BUILD_DIR);
-        path += "/src/pluga/tests/plugatestplugin/";
+        path += "/pluga/tests/plugatestplugin/";
 #if WIN32
 #ifdef _DEBUG
         path += "plugatestplugind.dll";
@@ -58,7 +58,7 @@ public:
                  << "\n\tClass Name: " << info->className
                  << "\n\tPlugin Name: " << info->pluginName
                  << "\n\tPlugin Version: " << info->pluginVersion
-				         << endl;
+                 << endl;
 
             // API version checking
             if (info->apiVersion != SCY_PLUGIN_API_VERSION)
