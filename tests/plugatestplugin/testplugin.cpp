@@ -10,7 +10,7 @@
 //
 
 
-SCY_PLUGIN(TestPlugin, "Test Plugin", "0.1.1")
+ICY_PLUGIN(TestPlugin, "Test Plugin", "0.1.1")
 
 
 TestPlugin::TestPlugin()
@@ -92,7 +92,7 @@ const char* TestPlugin::lastError() const
 //
 
 
-extern "C" SCY_PLUGIN_EXPORT int gimmeFive();
+extern "C" ICY_PLUGIN_EXPORT int gimmeFive();
 
 
 int gimmeFive()

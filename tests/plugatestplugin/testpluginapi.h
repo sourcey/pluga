@@ -1,11 +1,11 @@
 #pragma once
 
 
-#include "scy/pluga/pluga.h"
+#include "icy/pluga/pluga.h"
 #include <string>
 
 
-namespace scy {
+namespace icy {
 namespace pluga {
 
 
@@ -60,4 +60,4 @@ using GimmeFiveFunc = int (*)(); /// Static function which returns, you guessed
 
 
 } // namespace pluga
-} // namespace scy
+} // namespace icy

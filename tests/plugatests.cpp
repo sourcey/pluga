@@ -1,8 +1,8 @@
-#include "scy/base.h"
-#include "scy/logger.h"
-#include "scy/pluga/pluga.h"
-#include "scy/sharedlibrary.h"
-#include "scy/test.h"
+#include "icy/base.h"
+#include "icy/logger.h"
+#include "icy/pluga/pluga.h"
+#include "icy/sharedlibrary.h"
+#include "icy/test.h"
 
 #include "plugatestplugin/testpluginapi.h"
 
@@ -15,7 +15,7 @@ using std::endl;
 #define PLUGA_ENABLE_STL 1
 
 
-namespace scy {
+namespace icy {
 namespace pluga {
 
 
@@ -27,7 +27,7 @@ public:
     void runPluginTest()
     {
         // Set the plugin shared library location
-        std::string path(SCY_BUILD_DIR);
+        std::string path(ICY_BUILD_DIR);
         path += "/pluga/tests/plugatestplugin/";
 #if WIN32
 #ifdef _DEBUG
@@ -61,10 +61,10 @@ public:
                  << endl;
 
             // API version checking
-            if (info->apiVersion != SCY_PLUGIN_API_VERSION)
+            if (info->apiVersion != ICY_PLUGIN_API_VERSION)
                 throw std::runtime_error(util::format(
                     "Plugin version mismatch. Expected %s, got %s.",
-                    SCY_PLUGIN_API_VERSION, info->apiVersion));
+                    ICY_PLUGIN_API_VERSION, info->apiVersion));
 
             // Instantiate the plugin
             auto plugin = reinterpret_cast<IPlugin*>(info->initializeFunc());
@@ -100,7 +100,7 @@ public:
 
 
 } // namespace pluga
-} // namespace scy
+} // namespace icy
 
 
 int main(int argc, char** argv)
@@ -111,7 +111,7 @@ int main(int argc, char** argv)
 
     // Run tests
     {
-        scy::pluga::Tests run;
+        icy::pluga::Tests run;
     }
 
     return 0;

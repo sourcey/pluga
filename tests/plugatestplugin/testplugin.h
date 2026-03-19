@@ -5,7 +5,7 @@
 
 
 /// Test plugin implementation
-class TestPlugin : public scy::pluga::IPlugin
+class TestPlugin : public icy::pluga::IPlugin
 {
 public:
     TestPlugin();

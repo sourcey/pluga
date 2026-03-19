@@ -2,10 +2,10 @@
 
 > Simple C++ plugin system
 
-[![CI](https://github.com/sourcey/libsourcey/actions/workflows/ci.yml/badge.svg)](https://github.com/sourcey/libsourcey/actions/workflows/ci.yml)
+[![CI](https://github.com/icey/icey/actions/workflows/ci.yml/badge.svg)](https://github.com/icey/icey/actions/workflows/ci.yml)
 
-**Repository**: [https://github.com/sourcey/libsourcey](https://github.com/sourcey/libsourcey)
-**Dependencies**: [LibSourcey (base)](https://github.com/sourcey/libsourcey)
+**Repository**: [https://github.com/icey/icey](https://github.com/icey/icey)
+**Dependencies**: [Icey (base)](https://github.com/icey/icey)
 **Licence**: LGPL-2.1+
 
 Pluga is a simple C++ plugin system that you can drop into your own projects. It currently supports:
@@ -16,23 +16,23 @@ Pluga is a simple C++ plugin system that you can drop into your own projects. It
 
 ## Installing
 
-Pluga is part of the [LibSourcey](https://github.com/sourcey/libsourcey) project. To build:
+Pluga is part of the [Icey](https://github.com/icey/icey) project. To build:
 
 ~~~ bash
-git clone https://github.com/sourcey/libsourcey.git
-cd libsourcey
+git clone https://github.com/icey/icey.git
+cd icey
 git submodule update --init src/pluga
 cmake -B build -DBUILD_MODULE_pluga=ON -DBUILD_TESTS=ON
 cmake --build build
 ~~~
 
-Pluga can also be used as an external module by cloning it into the LibSourcey `src` folder, where it will be auto-discovered by the build system.
+Pluga can also be used as an external module by cloning it into the Icey `src` folder, where it will be auto-discovered by the build system.
 
 ## Contributing
 
 Contributions in the form of pull requests are always welcome.
 
-1. [Fork LibSourcey on Github](https://github.com/sourcey/libsourcey)
+1. [Fork Icey on Github](https://github.com/icey/icey)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)

@@ -1,3 +1,3 @@
-scy_add_module(pluga
+icy_add_module(pluga
   DEPENDS base
 )
