@@ -5,7 +5,9 @@
 //
 // SPDX-License-Identifier: LGPL-2.1+
 //
-/// @addtogroup pluga
+/// @defgroup pluga Pluga module
+///
+/// Plugin system for shared library loading.
 /// @{
 
 
@@ -47,7 +49,7 @@ class Pluga_API IPlugin;
 // Define a type for the static function pointer.
 using GetPluginFunc = IPlugin* (*)();
 
-// Plugin details structure that's exposed to the application.
+/// Metadata descriptor for a dynamically loaded plugin
 struct PluginDetails
 {
     int apiVersion;
