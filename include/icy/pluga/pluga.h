@@ -30,14 +30,17 @@
 
 
 namespace icy {
+/// @ingroup pluga
+/// Shared-library plugin discovery helpers and export metadata.
 namespace pluga {
 
 
-// Forward declare the plugin class which must be defined externally.
+/// Abstract plugin interface exported by shared libraries.
+/// The concrete implementation is provided by the plugin itself.
 class Pluga_API IPlugin;
 
-// Define the API version.
-// This value is incremented whenever there are ABI breaking changes.
+/// ABI version expected by the host when loading plugins.
+/// Increment this whenever plugin-facing binary compatibility changes.
 #define ICY_PLUGIN_API_VERSION 1
 
 #ifdef ICY_WIN
@@ -46,22 +49,38 @@ class Pluga_API IPlugin;
 #define ICY_PLUGIN_EXPORT // empty
 #endif
 
-// Define a type for the static function pointer.
+/// Function pointer type for the exported plugin entry point.
 using GetPluginFunc = IPlugin* (*)();
 
-/// Metadata descriptor for a dynamically loaded plugin
+/// Metadata descriptor exported alongside a dynamically loaded plugin.
 struct PluginDetails
 {
+    /// ABI version reported by the plugin.
     int apiVersion;
+
+    /// Source file used when the plugin export block was compiled.
     const char* fileName;
+
+    /// Concrete plugin class name.
     const char* className;
+
+    /// Human-readable plugin display name.
     const char* pluginName;
+
+    /// Plugin version string.
     const char* pluginVersion;
+
+    /// Entry point that returns the plugin singleton.
     GetPluginFunc initializeFunc;
 };
 
+/// Default metadata prefix used by the `ICY_PLUGIN` export helper.
 #define ICY_STANDARD_PLUGIN_STUFF ICY_PLUGIN_API_VERSION, __FILE__
 
+/// Declares the standard exported entry points and metadata for a plugin class.
+/// @param classType Concrete plugin implementation type.
+/// @param pluginName Human-readable plugin name string.
+/// @param pluginVersion Plugin version string.
 #define ICY_PLUGIN(classType, pluginName, pluginVersion)    \
     extern "C" {                                            \
     ICY_PLUGIN_EXPORT icy::pluga::IPlugin* getPlugin()      \
@@ -83,4 +102,4 @@ struct PluginDetails
 } // namespace icy
 
 
-/// @\}
+/// @}
