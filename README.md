@@ -2,10 +2,10 @@
 
 > Simple C++ plugin system
 
-[![CI](https://github.com/sourcey/icey/actions/workflows/ci.yml/badge.svg)](https://github.com/sourcey/icey/actions/workflows/ci.yml)
+[![CI](https://github.com/nilstate/icey/actions/workflows/ci.yml/badge.svg)](https://github.com/nilstate/icey/actions/workflows/ci.yml)
 
-**Repository**: [https://github.com/sourcey/icey](https://github.com/sourcey/icey)
-**Dependencies**: [icey (base)](https://github.com/sourcey/icey)
+**Repository**: [https://github.com/nilstate/icey](https://github.com/nilstate/icey)
+**Dependencies**: [icey (base)](https://github.com/nilstate/icey)
 **Licence**: LGPL-2.1+
 
 Pluga is a simple C++ plugin system that you can drop into your own projects. It currently supports:
@@ -16,10 +16,10 @@ Pluga is a simple C++ plugin system that you can drop into your own projects. It
 
 ## Installing
 
-Pluga is part of the [icey](https://github.com/sourcey/icey) project. To build:
+Pluga is part of the [icey](https://github.com/nilstate/icey) project. To build:
 
 ~~~ bash
-git clone https://github.com/sourcey/icey.git
+git clone https://github.com/nilstate/icey.git
 cd icey
 git submodule update --init src/pluga
 cmake -B build -DBUILD_MODULE_pluga=ON -DBUILD_TESTS=ON
@@ -32,7 +32,7 @@ Pluga can also be used as an external module by cloning it into the icey `src` f
 
 Contributions in the form of pull requests are always welcome.
 
-1. [Fork icey on Github](https://github.com/sourcey/icey)
+1. [Fork icey on Github](https://github.com/nilstate/icey)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
